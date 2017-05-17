@@ -301,7 +301,7 @@ End
 
 \begin_layout Title
 \noindent
-Operating System: 
+Operating Systems:
 \begin_inset Newline newline
 \end_inset
 
@@ -412,30 +412,27 @@ Greetings!
 
 \begin_layout Standard
 \noindent
-Probably you asked yourself at least once, how an Operating System (OS)
- was written from the ground up? You probably have spent years programming,
- but still understand operating system as a collection of abstract concepts,
- not how to implement an operating system in actual code.
- In your mind, somehow the operating system can magically control the underlying
- hardware and do what you want through the higher level API of your favorite
- programming language.
- You wish to understand the details, but for some reason, it seems too difficult
- because regardless how much you learn, it is never enough.
- You may feel that you are missing an important piece of the puzzle, and
- get stuck.
- However, deep inside you still want to write an operating system without
- a crystal clear understanding.
- After all, you are a software engineer, and an operating system is software.
- You should know your software better than anyone else!
+You've probably asked yourself at least once how an operating system is
+ written from the ground up.
+ You might even have years of programming experience under your belt, yet
+ your understanding of operating systems may still be a collection of abstract
+ concepts not grounded in actual implementation.
+ To those who've never built one, an operating system may seem like magic:
+ a mysterious thing that can control hardware while handling a programmer's
+ requests via the API of their favorite programming language.
+ Learning how to build an operating system seems intimidating and difficult;
+ no matter how much you learn, it never feels like you know enough.
+ You're probably reading this book right now to gain a better understanding
+ of operating systems to be a better software engineer.
 \end_layout
 
 \begin_layout Standard
 If that is the case, this book is for you.
- By going through this book, you will be able to find the missing piece
- that is essential and enable you to implement your operating system, from
- scratch! Yes, from scratch, without going through any existing operating
- system layer to comfort yourself that you are an operating system developer.
- You may ask, 
+ By going through this book, you will be able to find the missing pieces
+ that are essential and enable you to implement your own operating system
+ from scratch! Yes, from scratch without going through any existing operating
+ system layer to prove to yourself that you are an operating system developer.
+ You may ask,
 \begin_inset Quotes eld
 \end_inset
 
@@ -443,99 +440,96 @@ Isn't it more practical to learn the internals of Linux?
 \begin_inset Quotes erd
 \end_inset
 
- In the end, you learn Linux to improve your day job significantly and might
- be able to contribute to it.
- That is an excellent approach.
- However, if you follow that route, you still do not achieve the ultimate
- goal: writing an actual operating system.
- Also, you gain knowledge that can never learn from using any current operating
- system, and this experience can impact how you write software.
- These are the benefits of writing your operating system:
+.
+\end_layout
+
+\begin_layout Standard
+Yes...
+\end_layout
+
+\begin_layout Standard
+and no.
+\end_layout
+
+\begin_layout Standard
+Learning Linux can help your workflow at your day job.
+ However, if you follow that route, you still won't achieve the ultimate
+ goal of writing an actual operating system.
+ By writing your own operating system, you will gain knowledge that you
+ will not be able to glean just from learning Linux.
+\end_layout
+
+\begin_layout Standard
+Here's a list of some benefits of writing your own OS:
 \end_layout
 
 \begin_layout Itemize
-Learn how a computer works at the hardware level, and how you can write
- software that manages it directly.
+You will learn how a computer works at the hardware level, and you will
+ learn to write software to manage that hardware directly.
 \end_layout
 
 \begin_layout Itemize
-Learn the fundamentals so you can adapt to any operating system and not
- just Linux, or even write a new one.
+You will learn the fundamentals of operating systems, allowing you to adapt
+ to any operating system, not just Linux
 \end_layout
 
 \begin_layout Itemize
-You won't fully understand how Linux works without writing one on your own
- anyway.
- That is, to hack Linux internals profoundly, you will need to write at
- least one operating system on your own.
- Just like to write a large application, you need to start writing simple
- programs.
- Later you can proudly say that you really wrote an operating system from
- scratch, not a copy/paste textbook operating system.
+To hack on Linux internals suitably, you'll need to write at least one operating
+ system on your own.
+ This is just like applications programming: to write a large application,
+ you'll need to start with simple ones.
 \end_layout
 
 \begin_layout Itemize
-Open pathways to various low-level programming domains such as reverse engineeri
-ng, exploitations, virtual machines, game console emulators and more, since
- Assembly language becomes one of your indispensable tool for low-level
- analysis (but it does not mean that you have to write your operating system
- in Assembly!).
+You will open pathways to various low-level programming domains such as
+ reverse engineering, exploits, building virtual machines, game console
+ emulation and more.
+ Assembly language will become one of your most indispensable tools for
+ low-level analysis.
+ (But that does not mean you have to write your operating system in Assembly!)
 \end_layout
 
 \begin_layout Itemize
-Writing an operating system is fun.
+Writing an operating system is fun!
 \end_layout
 
 \begin_layout Section*
 
 \emph on
-Why another book on Operating System? 
+Why another book on Operating Systems?
 \end_layout
 
 \begin_layout Standard
-There are many books on this topic and even courses out there already, made
- by famous professors and experts.
- Who am I to write a book on such advanced topic? It is true that many quality
- books are out there.
- But then: of all the operating system books, do any of them show you how
- to compile your C code that is independent of an existing operating system
- and the C runtime library on top of it? Most books talk about operating
- system designs and books that talk about implementations, only mention
- the software side of operating system: algorithms, while the hardware side
- to enable an operating system to communicate with hardware is skipped;
- even if you read such books, the best you can only do is to experiment
- its algorithm in an existing operating system, which is not so satisfying.
- Maybe the scope of hardware is too large to include in an operating system
- book, and probably the students are assumed to obtain enough hardware knowledge
- beforehand from other courses.
- Or, the students only need to work within existing assignment framework:
- the only task is to fill the empty function body, run against test cases
- and complete their homework.
- Either way, hardware details are ignored, and it is hard to find relevant
- resources on the internet for a self-learner.
- The aim of this book is to provide that missing gap: not only you will
- learn how to program hardware directly, but you will also learn how to
- read official documents from hardware vendors to program it.
- You no longer have to guess where the online articles get such mysterious
- information of a hardware device to program it.
- You can do it yourself.
- Lastly, I wrote this book from an autodidact's perspective, thus I worked
- my best to make the book as self-contained as possible, so you spend more
- time learning and less time guessing and looking for information.
+There are many books and courses on this topic made by famous professors
+ and experts out there already.
+ Who am I to write a book on such an advanced topic? While it's true that
+ many quality resources exist, I find them lacking.
+ Do any of them show you how to compile your C code and the C runtime library
+ independent of an existing operating system? Most books on operating system
+ design and implementation only discuss the software side; how the operating
+ system communicates with the hardware is skipped.
+ Important hardware details are skipped, and it's difficult for a self-learner
+ to find relevant resources on the Internet.
+ The aim of this book is to bridge that gap: not only will you learn how
+ to program hardware directly, but also how to read official documents from
+ hardware vendors to program it.
+ You no longer have to seek out resources to help yourself interpret hardware
+ manuals and documentation: you can do it yourself.
+ Lastly, I wrote this book from an autodidact's perspective.
+ I made this book as self-contained as possible so you can spend more time
+ learning and less time guessing or seeking out information on the Internet.
 \end_layout
 
 \begin_layout Standard
-One strong focus of this book is to guide the learners through the habit
- of reading official documents from vendor to implement software, not from
- random online articles, which could be useful as supplementary material
- but difficult for systematic study.
- Official documents from hardware vendors e.g.
- Intel are critical for implementing an operating system or any other software
- that directly controls the hardware.
- At the minimum, an operating system developer is required to comprehend
- such documents and derive an implementation based on a set of requirements.
- Thus, the first chapter is dedicated to discuss relevant documents and
- its importance.
+One of the core focuses of this book is to guide you through the process
+ of reading official documentation from vendors to implement your software.
+ Official documents from hardware vendors like Intel are critical for implementi
+ng an operating system or any other software that directly controls the
+ hardware.
+ At a minimum, an operating system developer needs to be able to comprehend
+ these documents and implement software based on a set of hardware requirements.
+ Thus, the first chapter is dedicated to discussing relevant documents and
+ their importance.
 \end_layout
 
 \begin_layout Standard
@@ -548,7 +542,7 @@ Hello World
 \end_inset
 
  centric.
- Most examples revolve around variants of a
+ Most examples revolve around variants of a 
 \begin_inset Quotes eld
 \end_inset
 
@@ -556,17 +550,8 @@ Hello World
 \begin_inset Quotes erd
 \end_inset
 
- program.
- You will see that there are so many concepts to learn from a simple 
-\begin_inset Quotes eld
-\end_inset
-
-Hello World
-\begin_inset Quotes erd
-\end_inset
-
- program.
- The concepts must be acquainted before attempting to write an operating
+ program, which will acquaint you with core concepts.
+ These concepts must be learned before attempting to write an operating
  system.
  Anything beyond a simple 
 \begin_inset Quotes eld
@@ -582,14 +567,13 @@ Hello World
 \end_layout
 
 \begin_layout Standard
-If you agree with me, then wait no longer.
- Start diving in.
- With this book, I hope that I could provide enough foundational knowledge
- that finally you can make sense of available OS books and code.
- This book is especially beneficial to students who've just finished their
- first C/C++ course.
- Imagine how cool it is to show your future employer that you already wrote
- an OS on your own.
+Let's dive in.
+ With this book, I hope to provide enough foundational knowledge that will
+ open doors for you to make sense of other resources.
+ This book is will be especially beneficial to students who've just finished
+ their first C/C++ course.
+ Imagine how cool it would be to show prospective employers that you've
+ already built an operating system.
 \end_layout
 
 \begin_layout Section*
@@ -599,23 +583,24 @@ Prerequisites
 \end_layout
 
 \begin_layout Itemize
-Know some circuit concepts:
+Basic knowledge of circuits
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-Basic Concepts of Electricity: atom, electrons, proton, neutron, current
+Basic Concepts of Electricity: atoms, electrons, proton, neutron, current
  flow.
 \end_layout
 
 \begin_layout Itemize
-Ohm law
+Ohm's law
 \end_layout
 
 \begin_layout Standard
-However, if you know absolute nothing, you can quickly learn it here: 
+If you are unfamiliar with these concepts, you can quickly learn them here:
+ 
 \begin_inset Flex URL
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -629,30 +614,30 @@ http://www.allaboutcircuits.com/textbook/
 
 \end_deeper
 \begin_layout Itemize
-Know some C programming.
+C programming.
  In particular:
 \end_layout
 
 \begin_deeper
 \begin_layout Itemize
-Variable and functions declaration/definitions
+Variable and function declarations/definitions
 \end_layout
 
 \begin_layout Itemize
-While and for loops.
+While and for loops
 \end_layout
 
 \begin_layout Itemize
-Understand how pointers work.
+Pointers and function pointers
 \end_layout
 
 \begin_layout Itemize
-Fundamentals of algorithms and data structures in C.
+Fundamental algorithms and data structures in C
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
-Know Linux basics: 
+Linux basics: 
 \end_layout
 
 \begin_deeper
@@ -661,26 +646,25 @@ Know how to navigate directory with the command line
 \end_layout
 
 \begin_layout Itemize
-Know how to invoke a command with options.
+Know how to invoke a command with options
 \end_layout
 
 \begin_layout Itemize
-Know how to pipe output to another program.
+Know how to pipe output to another program
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
-Know how to touch type.
+Touch typing.
  Since we are going to use Linux, touch typing helps.
- I know typing speed does not relate to problem -solving, but at least the
- speed should be fast enough not to let it get it the way and degrade the
- learning experience.
+ I know typing speed does not relate to problem-solving, but at least your
+ typing speed should be fast enough not to let it get it the way and degrade
+ the learning experience.
 \end_layout
 
 \begin_layout Standard
-In general, I assume that a reader acquired basic programming knowledge
- with C, and can use an IDE at its basic.
- That is, know how to press the Play button for building and running a program.
+In general, I assume that the reader has basic C programming knowledge,
+ and can use an IDE to build and run a program.
 \end_layout
 
 \begin_layout Section*
@@ -691,8 +675,7 @@ What you will learn in this book
 
 \begin_layout Itemize
 How to write an operating system from scratch by reading hardware datasheets.
- In the real world, it works like that.
- You won't be able to consult Google for a quick answer.
+ In the real world, you will not be able to consult Google for a quick answer.
  
 \end_layout
 
@@ -700,9 +683,10 @@ How to write an operating system from scratch by reading hardware datasheets.
 Write code independently.
  It's pointless to copy and paste code.
  Real learning happens when you solve problems on your own.
- Some examples are given to kick start, but most problems are yours to conquer.
- However, the solutions are available online for you to examine after giving
- a good try.
+ Some examples are provided to help kick start your work, but most problems
+ are yours to conquer.
+ However, the solutions are available online for you after giving a good
+ try.
 \end_layout
 
 \begin_layout Itemize
@@ -711,7 +695,7 @@ A big picture of how each layer of a computer related to each other, from
 \end_layout
 
 \begin_layout Itemize
-Linux as a development environment and how to use common tools for low-level
+How to use Linux as a development environment and common tools for low-level
  programming.
 \end_layout
 
@@ -749,11 +733,8 @@ Electrical Engineering
 
 \end_inset
 
-: Although the book mentions some concepts of electronics and electrical
- engineering, they are for making intuitions of how software operates physically
- at bare metal.
- When you are comfortable with the underlying hardware, writing an operating
- system is much easier.
+: The book discusses some concepts from electronics and electrical engineering
+ only to the extent of how software operates on bare metal.
 \end_layout
 
 \begin_layout Itemize
@@ -780,7 +761,7 @@ Linux Kernel development
 
 \end_inset
 
-: There are already high-quality books out there.
+: There are already many high-quality books out there on this subject.
 \end_layout
 
 \begin_layout Itemize
@@ -817,30 +798,26 @@ Chapter 1 briefly explains the importance of domain documents.
 
 \begin_layout Itemize
 Chapter 2 explains the layers of abstractions from hardware to software.
- The idea is to provide insight into how code physically runs.
- 
+ The idea is to provide insight into how code runs physically.
 \end_layout
 
 \begin_layout Itemize
-Chapter 3 provides a general architecture of a computer, then introduces
- a sample computer model that a reader will use for writing an operating
- system.
+Chapter 3 provides the general architecture of a computer, then introduces
+ a sample computer model that you will use to write an operating system.
 \end_layout
 
 \begin_layout Itemize
 Chapter 4 introduces the x86 assembly language through the use of the Intel
- manuals along with commonly used instructions.
- The chapter gives detailed examples how high-level syntax corresponds to
- low-level assembly, thus enabling a reader to read generated assembly code
- comfortably.
+ manuals, along with commonly used instructions.
+ This chapter gives detailed examples of how high-level syntax corresponds
+ to low-level assembly, enabling you to read generated assembly code comfortably.
  It is necessary to read assembly code when debugging an operating system.
 \end_layout
 
 \begin_layout Itemize
 Chapter 5 dissects ELF in detail.
  Only by understanding how the structure of a program at the binary level,
- a reader can build one that runs on the bare metal by manipulating its
- structure.
+ you can build one that runs on bare metal.
 \end_layout
 
 \begin_layout Itemize
@@ -849,12 +826,12 @@ Chapter 6 introduces
 gdb
 \family default
  debugger with extensive examples for commonly used commands.
- After a reader is acquainted with 
+ After acquainting the reader with 
 \family typewriter
 gdb
 \family default
 , it then provides insight on how a debugger works.
- This knowledge is essential for building a debug-able program on the bare
+ This knowledge is essential for building a debuggable program on the bare
  metal.
  
 \end_layout
@@ -866,7 +843,9 @@ Part
 \end_inset
 
 2 presents how to write a bootloader to bootstrap a kernel.
- Hence, the name 
+ Hence the name 
+\emph on
+
 \begin_inset Quotes eld
 \end_inset
 
@@ -874,11 +853,13 @@ Groundwork
 \begin_inset Quotes erd
 \end_inset
 
+
+\emph default
 .
- After mastering this part, a reader can either continue with the next part
- that guides the reader how to write an operating system by himself.
- However, if the reader does not like the presentation, he can look elsewhere,
- such as OSDev Wiki: 
+ After mastering this part, the reader can either continue with the next
+ part that is a guide on writing an operating system.
+ However, if the reader does not like the presentation, he or she can look
+ elsewhere, such as OSDev Wiki: 
 \begin_inset Flex URL
 status open
 
@@ -895,20 +876,21 @@ http://wiki.osdev.org/
 
 \begin_deeper
 \begin_layout Itemize
-Chapter 7 introduces to bootloader, how to write one in assembly and then
- load it on QEMU, a hardware emulator.
+Chapter 7 introduces what the bootloader is, how to write one in assembly,
+ and how to load it on QEMU, a hardware emulator.
  This process involves typing repetitive and long commands, so GNU Make
- is applied to improve the productivity by automating the repetitive parts
- and simpler the interaction with the project.
+ is applied to improve productivity by automating the repetitive parts and
+ simplifying the interaction with the project.
  This chapter also demonstrates the use of GNU Make in context.
 \end_layout
 
 \begin_layout Itemize
 Chapter 8 introduces linking by explaining the relocation process when combining
  object files.
- Then, this is the last piece of the puzzle required to build debuggable
- programs on bare metal, include the bootloader and an operating system
- written in C.
+ In addition to a bootloader and an operating system written in C, this
+ is the last piece of the puzzle required for building debuggable programs
+ on bare metal, including the bootloader written in Assembly and an operating
+ system written in C.
 \end_layout
 
 \end_deeper
@@ -917,14 +899,13 @@ Part
 \begin_inset space ~
 \end_inset
 
-3 provides guidance on how to write an operating system.
- Only guidance, since a reader should implement on his own and be proud
- of his creation.
- The guidance consists of a simpler and coherent explanation of necessary
- concepts, from hardware to software, to implement a feature of an operating
+3 provides guidance on how to write an operating system, as you should implement
+ an operating system on your own and be proud of your creation.
+ The guidance consists of simpler and coherent explanations of necessary
+ concepts, from hardware to software, to implement the features of an operating
  system.
- Without the guidance, a reader spends more time gathering information spread
- through different parts of various documents and on the Internet.
+ Without such guidance, you will waste time gathering information spread
+ through various documents and the Internet.
  It then provides a plan on how to map the concepts to code.
 \end_layout
 
@@ -936,6 +917,7 @@ Acknowledgments
 
 \begin_layout Standard
 Thank you, my beloved family.
+ Thank you, the contributors.
 \end_layout
 
 \begin_layout Standard
@@ -977,7 +959,7 @@ Preliminary
 \end_layout
 
 \begin_layout Chapter
-The Documents
+Domain documents
 \end_layout
 
 \begin_layout Section
@@ -1824,9 +1806,9 @@ All electronic devices, from simple to complex, manipulate this flow to
  When we write software, we indirectly manipulate electrical current at
  the physical level, in such a way that the underlying machine produces
  desired effects.
- To understand the process, we start from a light bulb.
- A light bulb can be alternating between on and off with a switch, periodically:
- an off means number 0, and an on means 1.
+ To understand the process, we consider a simple light bulb.
+ A light bulb can change two states between on and off with a switch, periodical
+ly: an off means number 0, and an on means 1.
 \begin_inset Float marginfigure
 wide false
 sideways false
@@ -1860,10 +1842,10 @@ A lightbulb
 \end_layout
 
 \begin_layout Standard
-However, one problem is that such switch requires manual intervention from
- a human.
- What needed is an automatic switch based on voltage level, as described
- above.
+However, one problem is that such a switch requires manual intervention
+ from a human.
+ What is required is an automatic switch based on the voltage level, as
+ described above.
  To enable automatic switching of electrical signals, a device called 
 \emph on
 transistor
@@ -1901,7 +1883,7 @@ transistor
 
 
 \emph default
- is just a resistor whose values can vary based on an input voltage value
+ is just a resistor whose values can vary based on an input voltage value.
 \begin_inset Float marginfigure
 wide false
 sideways false
@@ -1931,7 +1913,6 @@ Modern transistor
 
 \end_inset
 
-.
  With this property, a transistor can be used as a current amplifier (more
  voltage, less resistance) or switch electrical signals off and on (block
  and unblock an electron flow) based on a voltage level.
@@ -2179,7 +2160,7 @@ th
 \end_inset
 
 century by George Boole.
- From a sound mathematical theory as a foundation created logic gates
+ With a sound mathematical theory as a foundation logic gates were created
 \emph on
 .
  
@@ -2217,7 +2198,7 @@ functionally complete
  Later, Charles Sanders Peirce (during 1880 -- 1881) proved that either
  Boolean function of NOR or NAND alone is enough to create all other Boolean
  logic functions.
- Thus NOR and NAND gates are functionally complete
+ Thus NOR and NAND gates are functionally complete 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Peirce"
@@ -2508,8 +2489,8 @@ end{figure}
 
 \begin_layout Standard
 From NAND gate, we have all other gates.
- As demonstrated, such simple circuitry performs the logical operators in
- day-to-day program languages e.g.
+ As demonstrated, such a simple circuitry performs the logical operators
+ in day-to-day program languages e.g.
  NOT operator 
 \family typewriter
 ~
@@ -2533,21 +2514,12 @@ From NAND gate, we have all other gates.
 One interesting property of CMOS is that 
 \series bold
 \emph on
-a k-input gate uses k PMOS and k NMOS transistors, a total of 2
-\begin_inset script superscript
-
-\begin_layout Plain Layout
-k
-\end_layout
-
-\end_inset
-
-transistors
+a k-input gate uses k PMOS and k NMOS transistors
 \series default
 \emph default
  
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "John_digital"
 
 \end_inset
@@ -2979,8 +2951,8 @@ nit
 \end_layout
 
 \begin_layout Standard
-Why does such bit pattern cause a device to do something? The reason is
- that underlying each instruction is a small circuit that implements such
+Why does such a bit pattern cause a device to do something? The reason is
+ that underlying each instruction is a small circuit that implements the
  instruction.
  Similar to how a function/subroutine in a computer program is called by
  its name, a bit pattern is a name of a little function inside a CPU that
@@ -3556,8 +3528,8 @@ H = HIGH voltage level; L = LOW voltage level; X = don’t care.
 
 The functional description provides a truth table with all possible pin
  inputs and outputs, which also describes the usage of all pins in the device.
- A user needs not to know the implementation, but on such table to use the
- device.
+ A user needs not to know the implementation, but on such a table to use
+ the device.
  We can say that the truth table above is the machine language of the device.
  Since the device is digital, its language is a collection of binary strings:
 \end_layout
@@ -3582,7 +3554,7 @@ The number of input strings is what the device understand, and the number
 \end_inset
 
 .
- However, such number is a tiny fraction of a complex device like a CPU,
+ However, the number is a tiny fraction of a complex device like a CPU,
  with hundreds of pins.
 \end_layout
 
@@ -4535,8 +4507,8 @@ height "1.5pt"
 \end_layout
 
 \begin_layout Standard
-To implement a 4-bit OR gate, we need a total of four of such 74HC00 chips
- configured as OR gates, packaged as a single chip as in figure 
+To implement a 4-bit OR gate, we need a total of four of 74HC00 chips configured
+ as OR gates, packaged as a single chip as in figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "or-chip-74hc00"
@@ -5074,7 +5046,7 @@ execute
  More instructions can be implemented by adding more devices and allocating
  more opcodes for the instructions, then update the decoder accordingly.
  The Apollo Guidance Computer, a digital computer produced for the Apollo
- space program from 1961 -- 1972, was built entirely with a NOR gate - the
+ space program from 1961 -- 1972, was built entirely with NOR gates - the
  other choice to NAND gate for creating other logic gates.
  Similarly, if we keep improving our hypothetical device, it eventually
  becomes a full-fledge computer.
@@ -5093,8 +5065,8 @@ Assembly language is a step up from writing 0 and 1.
  all over again in all places, we simply refer to such blocks of code with
  easier to use text forms.
  For example, a block of assembly code checks whether one variable is greater
- than another and if so, execute the block of code A, else execute the block
- of code B; in C, such block of assembly code is represented by an 
+ than another and if so, execute a block of code, else execute another block
+ of code; in C, such block of assembly code is represented by an 
 \begin_inset Flex Code
 status open
 
@@ -5387,7 +5359,7 @@ The recurring details are given a new and simpler language than the languages
 \begin_layout Standard
 What to realize is that every layer is just
 \emph on
- and a more convenient language to 
+ a more convenient language to 
 \series bold
 describe
 \series default
@@ -5407,21 +5379,12 @@ CMOS layer has a recurring pattern that makes sure logic gates are reliably
  translated to CMOS circuits: 
 \series bold
 \emph on
-a k-input gate uses k PMOS and k NMOS transistors, a total of 2
-\begin_inset script superscript
-
-\begin_layout Plain Layout
-k
-\end_layout
-
-\end_inset
-
-transistors
+a k-input gate uses k PMOS and k NMOS transistors
 \series default
 \emph default
  
 \begin_inset CommandInset citation
-LatexCommand cite
+LatexCommand citep
 key "John_digital"
 
 \end_inset
@@ -5742,7 +5705,7 @@ programmable programming language
  familiar or even aware of the existence of a code pattern, then it is hopeless
  to understand the code.
  A prime example is reading C code that controls hardware, e.g.
- an operating system: if a programmer knows absolutely knowing about hardware,
+ an operating system: if a programmer knows absolutely nothing about hardware,
  then it is impossible to read and write operating system code in C, even
  if he could have 20 years of writing application C code.
 \end_layout
@@ -7377,8 +7340,8 @@ To use these devices, a programmer needs to controls the CPU to use the
 In a CPU, many OS concepts are already implemented directly in hardware,
  e.g.
  task switching, paging.
- A kernel programmer needs to how to use the hardware features, to avoid
- duplicating such concept in software, thus wasting computer resources.
+ A kernel programmer needs to know how to use the hardware features, to
+ avoid duplicating such concept in software, thus wasting computer resources.
 \end_layout
 
 \begin_layout Itemize
@@ -7449,7 +7412,7 @@ Registers
 
 
 \emph default
-is a hardware component for high-speed data access and communication with
+are a hardware component for high-speed data access and communication with
  other hardware devices.
  Registers allow software to control hardware directly by writing to registers
  of a device, or receive information from hardware device when reading from
@@ -7580,7 +7543,7 @@ memory controller
 status open
 
 \begin_layout Plain Layout
-Prior to the CPU produced in 2009
+Prior to the CPU's produced in 2009
 \end_layout
 
 \end_inset
@@ -7691,14 +7654,40 @@ end{figure*}
 \end_layout
 
 \begin_layout Standard
-At the physical level, RAM is implemented by a transistor grid that stores
- charge; the charge gradually leaks and after a period, the grid needs refreshin
-g otherwise it loses all stored values.
- The individual transistor that stores charge is called 
+At the physical level, RAM is implemented as a grid of cells that each contain
+ a transistor and an electrical device called a 
+\emph on
+
+\begin_inset Marginal
+status open
+
+\begin_layout Plain Layout
+
+\series bold
 \emph on
 capacitor
+\end_layout
+
+\end_inset
+
+capacitor
 \emph default
-.
+
+\begin_inset Index idx
+status open
+
+\begin_layout Plain Layout
+capacitor
+\end_layout
+
+\end_inset
+
+, which stores charge for short periods of time.
+ The transistor controls access to the capacitor; when switched on, it allows
+ a small charge to be read from or written to the capacitor.
+ The charge on the capacitor slowly dissipates, requiring the inclusion
+ of a refresh circuit to periodically read values from the cells and write
+ them back after amplification from an external power source.
 \end_layout
 
 \begin_layout Standard
@@ -7708,6 +7697,19 @@ capacitor
 status open
 
 \begin_layout Plain Layout
+Bus
+\end_layout
+
+\end_inset
+
+
+\begin_inset Marginal
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\emph on
 Bus
 \end_layout
 
@@ -7731,6 +7733,19 @@ bus width
 
 \end_inset
 
+
+\begin_inset Marginal
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\emph on
+bus width
+\end_layout
+
+\end_inset
+
 bus width
 \emph default
 , and is dependent on how many wires a CPU can support.
@@ -7745,11 +7760,11 @@ Hardware
 
 \begin_layout Standard
 Hardware is a specific implementation of a computer.
- A line of processors contains same instruction set architectures and nearly
- identical organizations but differ in hardware implementation.
- For example, core i7 family provides a model for desktop computers that
- is more powerful but consumes more energy, while another model for laptops
- is less performant but more energy efficient.
+ A line of processors implement the same instruction set architecture and
+ use nearly identical organizations but differ in hardware implementation.
+ For example, the Core i7 family provides a model for desktop computers
+ that is more powerful but consumes more energy, while another model for
+ laptops is less performant but more energy efficient.
  To write software for a hardware device, seldom we need to understand a
  hardware implementation if documents are available.
  Computer organization and especially the instruction set architecture are
@@ -8154,7 +8169,7 @@ objdump
 
 \end_inset
 
- to examine how hight level source code maps to assembly code.
+ to examine how high level source code maps to assembly code.
  For now, we ignore the output and learn how to use the command first.
  It is simple to use 
 \begin_inset Flex Code
@@ -8755,7 +8770,7 @@ objdump
  translates every hex values into assembly instructions.
  In the above example, the assembly instruction is 
 \family typewriter
-push %rb
+push %rbp
 \family default
 .
  
@@ -9428,7 +9443,7 @@ hd.
 \end_layout
 
 \begin_layout LyX-Code
-00000180  00 64 69 73 70 38 2d 35  2e 61 73 6d 00 00 00 00  |.disp8-5.asm....|
+00000180  00 74 65 73 74 2e 61 73  6d 00 00 00 00 00 00 00  |.disp8-5.asm....|
 \end_layout
 
 \begin_layout LyX-Code
@@ -21362,8 +21377,8 @@ mul
 mul 
 \family default
 instruction consumes more than 1 byte, while the SIB only consumes 1 byte.
- More importantly, if the element is repeated accessed many times in a loop,
- e.g.
+ More importantly, if the element is repeatedly accessed many times in a
+ loop, e.g.
  millions of times, then an extra 
 \family typewriter
 mul
@@ -22049,7 +22064,6 @@ Values of SIB Byte (In Hexadecimal)
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
 00
 \end_layout
 
@@ -22061,8 +22075,7 @@ Values of SIB Byte (In Hexadecimal)
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-08
+01
 \end_layout
 
 \end_inset
@@ -22073,8 +22086,7 @@ Values of SIB Byte (In Hexadecimal)
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-10
+02
 \end_layout
 
 \end_inset
@@ -22085,8 +22097,7 @@ Values of SIB Byte (In Hexadecimal)
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-18
+03
 \end_layout
 
 \end_inset
@@ -22097,8 +22108,7 @@ Values of SIB Byte (In Hexadecimal)
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-20
+04
 \end_layout
 
 \end_inset
@@ -22109,8 +22119,7 @@ Values of SIB Byte (In Hexadecimal)
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-28
+05
 \end_layout
 
 \end_inset
@@ -22121,8 +22130,7 @@ Values of SIB Byte (In Hexadecimal)
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-30
+06
 \end_layout
 
 \end_inset
@@ -22133,8 +22141,7 @@ Values of SIB Byte (In Hexadecimal)
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-38
+07
 \end_layout
 
 \end_inset
@@ -22180,8 +22187,7 @@ Values of SIB Byte (In Hexadecimal)
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-01
+08
 \end_layout
 
 \end_inset
@@ -22192,7 +22198,6 @@ Values of SIB Byte (In Hexadecimal)
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
 09
 \end_layout
 
@@ -22204,8 +22209,7 @@ Values of SIB Byte (In Hexadecimal)
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-11
+0A
 \end_layout
 
 \end_inset
@@ -22216,8 +22220,7 @@ Values of SIB Byte (In Hexadecimal)
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-19
+0B
 \end_layout
 
 \end_inset
@@ -22228,8 +22231,7 @@ Values of SIB Byte (In Hexadecimal)
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-21
+0C
 \end_layout
 
 \end_inset
@@ -22240,8 +22242,7 @@ Values of SIB Byte (In Hexadecimal)
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-29
+0D
 \end_layout
 
 \end_inset
@@ -22252,8 +22253,7 @@ Values of SIB Byte (In Hexadecimal)
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-31
+0E
 \end_layout
 
 \end_inset
@@ -22264,8 +22264,7 @@ Values of SIB Byte (In Hexadecimal)
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-39
+0F
 \end_layout
 
 \end_inset
@@ -22311,8 +22310,7 @@ Values of SIB Byte (In Hexadecimal)
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-02
+10
 \end_layout
 
 \end_inset
@@ -22323,8 +22321,7 @@ Values of SIB Byte (In Hexadecimal)
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-0A
+11
 \end_layout
 
 \end_inset
@@ -22335,7 +22332,6 @@ Values of SIB Byte (In Hexadecimal)
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
 12
 \end_layout
 
@@ -22347,8 +22343,7 @@ Values of SIB Byte (In Hexadecimal)
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-1A
+13
 \end_layout
 
 \end_inset
@@ -22359,8 +22354,7 @@ Values of SIB Byte (In Hexadecimal)
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-22
+14
 \end_layout
 
 \end_inset
@@ -22371,8 +22365,7 @@ Values of SIB Byte (In Hexadecimal)
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-2A
+15
 \end_layout
 
 \end_inset
@@ -22383,8 +22376,7 @@ Values of SIB Byte (In Hexadecimal)
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-32
+16
 \end_layout
 
 \end_inset
@@ -22395,8 +22387,7 @@ Values of SIB Byte (In Hexadecimal)
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-3A
+17
 \end_layout
 
 \end_inset
@@ -22442,8 +22433,7 @@ Values of SIB Byte (In Hexadecimal)
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-03
+18
 \end_layout
 
 \end_inset
@@ -22454,8 +22444,7 @@ Values of SIB Byte (In Hexadecimal)
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-0B
+19
 \end_layout
 
 \end_inset
@@ -22466,8 +22455,7 @@ Values of SIB Byte (In Hexadecimal)
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-13
+1A
 \end_layout
 
 \end_inset
@@ -22478,7 +22466,6 @@ Values of SIB Byte (In Hexadecimal)
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
 1B
 \end_layout
 
@@ -22490,8 +22477,7 @@ Values of SIB Byte (In Hexadecimal)
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-23
+1C
 \end_layout
 
 \end_inset
@@ -22502,8 +22488,7 @@ Values of SIB Byte (In Hexadecimal)
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-2B
+1D
 \end_layout
 
 \end_inset
@@ -22514,8 +22499,7 @@ Values of SIB Byte (In Hexadecimal)
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-33
+1E
 \end_layout
 
 \end_inset
@@ -22526,8 +22510,7 @@ Values of SIB Byte (In Hexadecimal)
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-3B
+1F
 \end_layout
 
 \end_inset
@@ -22573,8 +22556,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-04
+20
 \end_layout
 
 \end_inset
@@ -22585,8 +22567,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-0C
+21
 \end_layout
 
 \end_inset
@@ -22597,8 +22578,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-14
+22
 \end_layout
 
 \end_inset
@@ -22609,8 +22589,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-1C
+23
 \end_layout
 
 \end_inset
@@ -22621,7 +22600,6 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
 24
 \end_layout
 
@@ -22633,8 +22611,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-2C
+25
 \end_layout
 
 \end_inset
@@ -22645,8 +22622,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-34
+26
 \end_layout
 
 \end_inset
@@ -22657,8 +22633,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-3C
+27
 \end_layout
 
 \end_inset
@@ -22704,8 +22679,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-05
+28
 \end_layout
 
 \end_inset
@@ -22716,8 +22690,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-0D
+29
 \end_layout
 
 \end_inset
@@ -22728,8 +22701,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-15
+2A
 \end_layout
 
 \end_inset
@@ -22740,8 +22712,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-1D
+2B
 \end_layout
 
 \end_inset
@@ -22752,8 +22723,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-25
+2C
 \end_layout
 
 \end_inset
@@ -22764,7 +22734,6 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
 2D
 \end_layout
 
@@ -22776,8 +22745,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-35
+2E
 \end_layout
 
 \end_inset
@@ -22788,8 +22756,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-3D
+2F
 \end_layout
 
 \end_inset
@@ -22835,8 +22802,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-06
+30
 \end_layout
 
 \end_inset
@@ -22847,8 +22813,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-0E
+31
 \end_layout
 
 \end_inset
@@ -22859,8 +22824,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-16
+32
 \end_layout
 
 \end_inset
@@ -22871,8 +22835,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-1E
+33
 \end_layout
 
 \end_inset
@@ -22883,8 +22846,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-26
+34
 \end_layout
 
 \end_inset
@@ -22895,8 +22857,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-2E
+35
 \end_layout
 
 \end_inset
@@ -22907,7 +22868,6 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
 36
 \end_layout
 
@@ -22919,8 +22879,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-3E
+37
 \end_layout
 
 \end_inset
@@ -22966,8 +22925,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-07
+38
 \end_layout
 
 \end_inset
@@ -22978,8 +22936,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-0F
+39
 \end_layout
 
 \end_inset
@@ -22990,8 +22947,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-17
+3A
 \end_layout
 
 \end_inset
@@ -23002,8 +22958,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-1F
+3B
 \end_layout
 
 \end_inset
@@ -23014,8 +22969,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-27
+3C
 \end_layout
 
 \end_inset
@@ -23026,8 +22980,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-2F
+3D
 \end_layout
 
 \end_inset
@@ -23038,8 +22991,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-37
+3E
 \end_layout
 
 \end_inset
@@ -23050,7 +23002,6 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
 3F
 \end_layout
 
@@ -23100,7 +23051,6 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
 40
 \end_layout
 
@@ -23112,8 +23062,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-48
+41
 \end_layout
 
 \end_inset
@@ -23124,8 +23073,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-50
+42
 \end_layout
 
 \end_inset
@@ -23136,8 +23084,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-58
+43
 \end_layout
 
 \end_inset
@@ -23148,8 +23095,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-60
+44
 \end_layout
 
 \end_inset
@@ -23160,8 +23106,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-68
+45
 \end_layout
 
 \end_inset
@@ -23172,8 +23117,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-70
+46
 \end_layout
 
 \end_inset
@@ -23184,8 +23128,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-78
+47
 \end_layout
 
 \end_inset
@@ -23231,8 +23174,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-41
+48
 \end_layout
 
 \end_inset
@@ -23243,7 +23185,6 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
 49
 \end_layout
 
@@ -23255,8 +23196,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-51
+4A
 \end_layout
 
 \end_inset
@@ -23267,8 +23207,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-59
+4B
 \end_layout
 
 \end_inset
@@ -23279,8 +23218,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-61
+4C
 \end_layout
 
 \end_inset
@@ -23291,8 +23229,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-69
+4D
 \end_layout
 
 \end_inset
@@ -23303,8 +23240,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-71
+4E
 \end_layout
 
 \end_inset
@@ -23315,8 +23251,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-79
+4F
 \end_layout
 
 \end_inset
@@ -23362,8 +23297,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-42
+50
 \end_layout
 
 \end_inset
@@ -23374,8 +23308,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-4A
+51
 \end_layout
 
 \end_inset
@@ -23386,7 +23319,6 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
 52
 \end_layout
 
@@ -23398,8 +23330,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-5A
+53
 \end_layout
 
 \end_inset
@@ -23410,8 +23341,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-62
+54
 \end_layout
 
 \end_inset
@@ -23422,8 +23352,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-6A
+55
 \end_layout
 
 \end_inset
@@ -23434,8 +23363,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-72
+56
 \end_layout
 
 \end_inset
@@ -23446,8 +23374,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-7A
+57
 \end_layout
 
 \end_inset
@@ -23493,8 +23420,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-43
+58
 \end_layout
 
 \end_inset
@@ -23505,8 +23431,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-4B
+59
 \end_layout
 
 \end_inset
@@ -23517,8 +23442,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-53
+5A
 \end_layout
 
 \end_inset
@@ -23529,7 +23453,6 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
 5B
 \end_layout
 
@@ -23541,8 +23464,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-63
+5C
 \end_layout
 
 \end_inset
@@ -23553,8 +23475,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-6B
+5D
 \end_layout
 
 \end_inset
@@ -23565,8 +23486,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-73
+5E
 \end_layout
 
 \end_inset
@@ -23577,8 +23497,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-7B
+5F
 \end_layout
 
 \end_inset
@@ -23624,8 +23543,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-44
+60
 \end_layout
 
 \end_inset
@@ -23636,8 +23554,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-4C
+61
 \end_layout
 
 \end_inset
@@ -23648,8 +23565,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-54
+62
 \end_layout
 
 \end_inset
@@ -23660,8 +23576,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-5C
+63
 \end_layout
 
 \end_inset
@@ -23672,7 +23587,6 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
 64
 \end_layout
 
@@ -23684,8 +23598,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-6C
+65
 \end_layout
 
 \end_inset
@@ -23696,8 +23609,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-74
+66
 \end_layout
 
 \end_inset
@@ -23708,8 +23620,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-7C
+67
 \end_layout
 
 \end_inset
@@ -23755,8 +23666,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-45
+68
 \end_layout
 
 \end_inset
@@ -23767,8 +23677,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-4D
+69
 \end_layout
 
 \end_inset
@@ -23779,8 +23688,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-55
+6A
 \end_layout
 
 \end_inset
@@ -23791,8 +23699,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-5D
+6B
 \end_layout
 
 \end_inset
@@ -23803,8 +23710,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-65
+6C
 \end_layout
 
 \end_inset
@@ -23815,7 +23721,6 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
 6D
 \end_layout
 
@@ -23827,8 +23732,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-75
+6E
 \end_layout
 
 \end_inset
@@ -23839,8 +23743,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-7D
+6F
 \end_layout
 
 \end_inset
@@ -23886,8 +23789,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-46
+70
 \end_layout
 
 \end_inset
@@ -23898,8 +23800,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-4E
+71
 \end_layout
 
 \end_inset
@@ -23910,8 +23811,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-56
+72
 \end_layout
 
 \end_inset
@@ -23922,8 +23822,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-5E
+73
 \end_layout
 
 \end_inset
@@ -23934,8 +23833,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-66
+74
 \end_layout
 
 \end_inset
@@ -23946,8 +23844,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-6E
+75
 \end_layout
 
 \end_inset
@@ -23958,7 +23855,6 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
 76
 \end_layout
 
@@ -23970,8 +23866,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-7E
+77
 \end_layout
 
 \end_inset
@@ -24017,8 +23912,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-47
+78
 \end_layout
 
 \end_inset
@@ -24029,8 +23923,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-4F
+79
 \end_layout
 
 \end_inset
@@ -24041,8 +23934,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-57
+7A
 \end_layout
 
 \end_inset
@@ -24053,8 +23945,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-5F
+7B
 \end_layout
 
 \end_inset
@@ -24065,8 +23956,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-67
+7C
 \end_layout
 
 \end_inset
@@ -24077,8 +23967,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-6F
+7D
 \end_layout
 
 \end_inset
@@ -24089,8 +23978,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-77
+7E
 \end_layout
 
 \end_inset
@@ -24101,7 +23989,6 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
 7F
 \end_layout
 
@@ -24151,7 +24038,6 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
 80
 \end_layout
 
@@ -24163,8 +24049,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-88
+81
 \end_layout
 
 \end_inset
@@ -24175,8 +24060,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-90
+82
 \end_layout
 
 \end_inset
@@ -24187,8 +24071,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-98
+83
 \end_layout
 
 \end_inset
@@ -24199,8 +24082,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-A0
+84
 \end_layout
 
 \end_inset
@@ -24211,8 +24093,7 @@ A0
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-A8
+85
 \end_layout
 
 \end_inset
@@ -24223,8 +24104,7 @@ A8
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-B0
+86
 \end_layout
 
 \end_inset
@@ -24235,8 +24115,7 @@ B0
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-B8
+87
 \end_layout
 
 \end_inset
@@ -24282,8 +24161,7 @@ B8
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-81
+88
 \end_layout
 
 \end_inset
@@ -24294,7 +24172,6 @@ B8
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
 89
 \end_layout
 
@@ -24306,8 +24183,7 @@ B8
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-91
+8A
 \end_layout
 
 \end_inset
@@ -24318,8 +24194,7 @@ B8
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-99
+8B
 \end_layout
 
 \end_inset
@@ -24330,8 +24205,7 @@ B8
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-A1
+8C
 \end_layout
 
 \end_inset
@@ -24342,8 +24216,7 @@ A1
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-A9
+8D
 \end_layout
 
 \end_inset
@@ -24354,8 +24227,7 @@ A9
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-B1
+8E
 \end_layout
 
 \end_inset
@@ -24366,8 +24238,7 @@ B1
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-B9
+8F
 \end_layout
 
 \end_inset
@@ -24413,8 +24284,7 @@ B9
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-82
+90
 \end_layout
 
 \end_inset
@@ -24425,8 +24295,7 @@ B9
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-8A
+91
 \end_layout
 
 \end_inset
@@ -24437,7 +24306,6 @@ B9
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
 92
 \end_layout
 
@@ -24449,8 +24317,7 @@ B9
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-9A
+93
 \end_layout
 
 \end_inset
@@ -24461,8 +24328,7 @@ B9
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-A2
+94
 \end_layout
 
 \end_inset
@@ -24473,8 +24339,7 @@ A2
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-AA
+95
 \end_layout
 
 \end_inset
@@ -24485,8 +24350,7 @@ AA
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-B2
+96
 \end_layout
 
 \end_inset
@@ -24497,8 +24361,7 @@ B2
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-BA
+97
 \end_layout
 
 \end_inset
@@ -24544,8 +24407,7 @@ BA
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-83
+98
 \end_layout
 
 \end_inset
@@ -24556,8 +24418,7 @@ BA
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-8B
+99
 \end_layout
 
 \end_inset
@@ -24568,8 +24429,7 @@ BA
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-93
+9A
 \end_layout
 
 \end_inset
@@ -24580,7 +24440,6 @@ BA
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
 9B
 \end_layout
 
@@ -24592,8 +24451,7 @@ BA
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-A3
+9C
 \end_layout
 
 \end_inset
@@ -24604,8 +24462,7 @@ A3
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-AB
+9D
 \end_layout
 
 \end_inset
@@ -24616,8 +24473,7 @@ AB
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-B3
+9E
 \end_layout
 
 \end_inset
@@ -24628,8 +24484,7 @@ B3
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-BB
+9F
 \end_layout
 
 \end_inset
@@ -24675,8 +24530,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-84
+A0
 \end_layout
 
 \end_inset
@@ -24687,8 +24541,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-8C
+A1
 \end_layout
 
 \end_inset
@@ -24699,8 +24552,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-94
+A2
 \end_layout
 
 \end_inset
@@ -24711,8 +24563,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-9C
+A3
 \end_layout
 
 \end_inset
@@ -24723,7 +24574,6 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
 A4
 \end_layout
 
@@ -24735,8 +24585,7 @@ A4
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-AC
+A5
 \end_layout
 
 \end_inset
@@ -24747,8 +24596,7 @@ AC
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-B4
+A6
 \end_layout
 
 \end_inset
@@ -24759,8 +24607,7 @@ B4
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-BC
+A7
 \end_layout
 
 \end_inset
@@ -24806,8 +24653,7 @@ BC
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-85
+A8
 \end_layout
 
 \end_inset
@@ -24818,8 +24664,7 @@ BC
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-8D
+A9
 \end_layout
 
 \end_inset
@@ -24830,8 +24675,7 @@ BC
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-95
+AA
 \end_layout
 
 \end_inset
@@ -24842,8 +24686,7 @@ BC
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-9D
+AB
 \end_layout
 
 \end_inset
@@ -24854,8 +24697,7 @@ BC
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-A5
+AC
 \end_layout
 
 \end_inset
@@ -24866,7 +24708,6 @@ A5
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
 AD
 \end_layout
 
@@ -24878,8 +24719,7 @@ AD
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-B5
+AE
 \end_layout
 
 \end_inset
@@ -24890,8 +24730,7 @@ B5
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-BD
+AF
 \end_layout
 
 \end_inset
@@ -24937,8 +24776,7 @@ BD
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-86
+B0
 \end_layout
 
 \end_inset
@@ -24949,8 +24787,7 @@ BD
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-8E
+B1
 \end_layout
 
 \end_inset
@@ -24961,8 +24798,7 @@ BD
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-96
+B2
 \end_layout
 
 \end_inset
@@ -24973,8 +24809,7 @@ BD
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-9E
+B3
 \end_layout
 
 \end_inset
@@ -24985,8 +24820,7 @@ BD
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-A6
+B4
 \end_layout
 
 \end_inset
@@ -24997,8 +24831,7 @@ A6
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-AE
+B5
 \end_layout
 
 \end_inset
@@ -25009,7 +24842,6 @@ AE
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
 B6
 \end_layout
 
@@ -25021,8 +24853,7 @@ B6
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-BE
+B7
 \end_layout
 
 \end_inset
@@ -25068,8 +24899,7 @@ BE
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-87
+B8
 \end_layout
 
 \end_inset
@@ -25080,8 +24910,7 @@ BE
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-8F
+B9
 \end_layout
 
 \end_inset
@@ -25092,8 +24921,7 @@ BE
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-97
+BA
 \end_layout
 
 \end_inset
@@ -25104,8 +24932,7 @@ BE
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-9F
+BB
 \end_layout
 
 \end_inset
@@ -25116,8 +24943,7 @@ BE
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-A7
+BC
 \end_layout
 
 \end_inset
@@ -25128,8 +24954,7 @@ A7
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-AF
+BD
 \end_layout
 
 \end_inset
@@ -25140,8 +24965,7 @@ AF
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-B7
+BE
 \end_layout
 
 \end_inset
@@ -25152,7 +24976,6 @@ B7
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
 BF
 \end_layout
 
@@ -25202,7 +25025,6 @@ BF
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
 C0
 \end_layout
 
@@ -25214,8 +25036,7 @@ C0
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-C8
+C1
 \end_layout
 
 \end_inset
@@ -25226,8 +25047,7 @@ C8
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-D0
+C2
 \end_layout
 
 \end_inset
@@ -25238,8 +25058,7 @@ D0
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-D8
+C3
 \end_layout
 
 \end_inset
@@ -25250,8 +25069,7 @@ D8
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-E0
+C4
 \end_layout
 
 \end_inset
@@ -25262,8 +25080,7 @@ E0
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-E8
+C5
 \end_layout
 
 \end_inset
@@ -25274,8 +25091,7 @@ E8
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-F0
+C6
 \end_layout
 
 \end_inset
@@ -25286,8 +25102,7 @@ F0
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-F8
+C7
 \end_layout
 
 \end_inset
@@ -25333,8 +25148,7 @@ F8
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-C1
+C8
 \end_layout
 
 \end_inset
@@ -25345,7 +25159,6 @@ C1
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
 C9
 \end_layout
 
@@ -25357,8 +25170,7 @@ C9
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-D1
+CA
 \end_layout
 
 \end_inset
@@ -25369,8 +25181,7 @@ D1
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-D9
+CB
 \end_layout
 
 \end_inset
@@ -25381,8 +25192,7 @@ D9
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-E1
+CC
 \end_layout
 
 \end_inset
@@ -25393,8 +25203,7 @@ E1
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-E9
+CD
 \end_layout
 
 \end_inset
@@ -25405,8 +25214,7 @@ E9
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-F1
+CE
 \end_layout
 
 \end_inset
@@ -25417,8 +25225,7 @@ F1
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-F9
+CF
 \end_layout
 
 \end_inset
@@ -25464,8 +25271,7 @@ F9
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-C2
+D0
 \end_layout
 
 \end_inset
@@ -25476,8 +25282,7 @@ C2
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-CA
+D1
 \end_layout
 
 \end_inset
@@ -25488,7 +25293,6 @@ CA
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
 D2
 \end_layout
 
@@ -25500,8 +25304,7 @@ D2
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-DA
+D3
 \end_layout
 
 \end_inset
@@ -25512,8 +25315,7 @@ DA
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-E2
+D4
 \end_layout
 
 \end_inset
@@ -25524,8 +25326,7 @@ E2
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-EA
+D5
 \end_layout
 
 \end_inset
@@ -25536,8 +25337,7 @@ EA
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-F2
+D6
 \end_layout
 
 \end_inset
@@ -25548,8 +25348,7 @@ F2
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-FA
+D7
 \end_layout
 
 \end_inset
@@ -25595,8 +25394,7 @@ FA
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-C3
+D8
 \end_layout
 
 \end_inset
@@ -25607,8 +25405,7 @@ C3
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-CB
+D9
 \end_layout
 
 \end_inset
@@ -25619,8 +25416,7 @@ CB
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-D3
+DA
 \end_layout
 
 \end_inset
@@ -25631,7 +25427,6 @@ D3
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
 DB
 \end_layout
 
@@ -25643,8 +25438,7 @@ DB
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-E3
+DC
 \end_layout
 
 \end_inset
@@ -25655,8 +25449,7 @@ E3
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-EB
+DD
 \end_layout
 
 \end_inset
@@ -25667,8 +25460,7 @@ EB
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-F3
+DE
 \end_layout
 
 \end_inset
@@ -25679,8 +25471,7 @@ F3
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-FB
+DF
 \end_layout
 
 \end_inset
@@ -25726,8 +25517,7 @@ none
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-C4
+E0
 \end_layout
 
 \end_inset
@@ -25738,8 +25528,7 @@ C4
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-CC
+E1
 \end_layout
 
 \end_inset
@@ -25750,8 +25539,7 @@ CC
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-D4
+E2
 \end_layout
 
 \end_inset
@@ -25762,8 +25550,7 @@ D4
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-DC
+E3
 \end_layout
 
 \end_inset
@@ -25774,7 +25561,6 @@ DC
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
 E4
 \end_layout
 
@@ -25786,8 +25572,7 @@ E4
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-EC
+E5
 \end_layout
 
 \end_inset
@@ -25798,8 +25583,7 @@ EC
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-F4
+E6
 \end_layout
 
 \end_inset
@@ -25810,8 +25594,7 @@ F4
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-FC
+E7
 \end_layout
 
 \end_inset
@@ -25857,8 +25640,7 @@ FC
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-C5
+E8
 \end_layout
 
 \end_inset
@@ -25869,8 +25651,7 @@ C5
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-CD
+E9
 \end_layout
 
 \end_inset
@@ -25881,8 +25662,7 @@ CD
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-D5
+EA
 \end_layout
 
 \end_inset
@@ -25893,8 +25673,7 @@ D5
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-DD
+EB
 \end_layout
 
 \end_inset
@@ -25905,8 +25684,7 @@ DD
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-E5
+EC
 \end_layout
 
 \end_inset
@@ -25917,7 +25695,6 @@ E5
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
 ED
 \end_layout
 
@@ -25929,8 +25706,7 @@ ED
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-F5
+EE
 \end_layout
 
 \end_inset
@@ -25941,8 +25717,7 @@ F5
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-FD
+EF
 \end_layout
 
 \end_inset
@@ -25988,8 +25763,7 @@ FD
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-C6
+F0
 \end_layout
 
 \end_inset
@@ -26000,8 +25774,7 @@ C6
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-CE
+F1
 \end_layout
 
 \end_inset
@@ -26012,8 +25785,7 @@ CE
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-D6
+F2
 \end_layout
 
 \end_inset
@@ -26024,8 +25796,7 @@ D6
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-DE
+F3
 \end_layout
 
 \end_inset
@@ -26036,8 +25807,7 @@ DE
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-E6
+F4
 \end_layout
 
 \end_inset
@@ -26048,8 +25818,7 @@ E6
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-EE
+F5
 \end_layout
 
 \end_inset
@@ -26060,7 +25829,6 @@ EE
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
 F6
 \end_layout
 
@@ -26072,8 +25840,7 @@ F6
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-FE
+F7
 \end_layout
 
 \end_inset
@@ -26119,8 +25886,7 @@ FE
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-C7
+F8
 \end_layout
 
 \end_inset
@@ -26131,8 +25897,7 @@ C7
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-CF
+F9
 \end_layout
 
 \end_inset
@@ -26143,8 +25908,7 @@ CF
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-D7
+FA
 \end_layout
 
 \end_inset
@@ -26155,8 +25919,7 @@ D7
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-DF
+FB
 \end_layout
 
 \end_inset
@@ -26167,8 +25930,7 @@ DF
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-E7
+FC
 \end_layout
 
 \end_inset
@@ -26179,8 +25941,7 @@ E7
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-EF
+FD
 \end_layout
 
 \end_inset
@@ -26191,8 +25952,7 @@ EF
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
-F7
+FE
 \end_layout
 
 \end_inset
@@ -26203,7 +25963,6 @@ F7
 \begin_layout Plain Layout
 
 \family typewriter
-\size footnotesize
 FF
 \end_layout
 
@@ -26510,7 +26269,7 @@ prefix
  The number is a predefined prefix for address-size override prefix.
  After the prefix, comes the opcode 
 \family typewriter
-0x67 
+0xff 
 \family default
 and the 
 \family typewriter
@@ -29711,7 +29470,7 @@ cs
  register with the value 
 \family typewriter
 \color blue
-0x1234
+0x5678
 \family default
 \color inherit
 ; the 
@@ -29725,7 +29484,7 @@ eip
 register with the value 
 \family typewriter
 \color red
-0x5678
+0x1234
 \family default
 \color inherit
  and start executing from there.
@@ -29748,11 +29507,11 @@ EA
 \begin_layout LyX-Code
 jmp 
 \color blue
-0x1234
+0x5678
 \color inherit
 :
 \color red
-0x5678
+0x1234
 \end_layout
 
 \begin_layout Standard
@@ -29764,11 +29523,11 @@ is generated into:
 \begin_layout LyX-Code
 ea 
 \color red
-78 56
+34 12
 \color inherit
  
 \color blue
-34 12
+78 56
 \end_layout
 
 \begin_layout Standard
@@ -29777,11 +29536,11 @@ ea
 The address 
 \family typewriter
 \color blue
-0x1234
+0x5678
 \color inherit
 :
 \color red
-0x5678
+0x1234
 \family default
 \color inherit
  is right next to the opcode, unlike 
@@ -35505,7 +35264,7 @@ qual comparison.
 Expression: 
 \family typewriter
 int 
-\color green
+\color blue
 logical_and
 \color inherit
  = (i && j);
@@ -35519,9 +35278,9 @@ logical_and
 \end_layout
 
 \begin_layout LyX-Code
-
+804849f:       je 
 \color blue
-804849f:       je     
+    
 \color magenta
 80484ae
 \color blue
@@ -35541,9 +35300,9 @@ logical_and
 \end_layout
 
 \begin_layout LyX-Code
-
+80484a5:       je
 \color blue
-80484a5:       je     
+     
 \color magenta
 80484ae <expr+0xd3>   
 \color blue
@@ -35559,7 +35318,11 @@ logical_and
 \end_layout
 
 \begin_layout LyX-Code
-80484ac:       jmp    80484b3 <expr+0xd8>    
+80484ac:       jmp    
+\color green
+80484b3 <expr+0xd8>   
+\color inherit
+ 
 \end_layout
 
 \begin_layout LyX-Code
@@ -35575,8 +35338,12 @@ logical_and
 \end_layout
 
 \begin_layout LyX-Code
-80484b3:       mov    DWORD PTR 
+
 \color green
+80484b3:
+\color inherit
+       mov    DWORD PTR 
+\color blue
 [ebp-0x8]
 \color inherit
 ,eax
@@ -35743,25 +35510,26 @@ Set it accordingly with the instruction at
 \end_layout
 
 \begin_layout Enumerate
-Then jump over the instruction at 
+Then jump to the instruction at 
 \family typewriter
-\color magenta
-0x80484ae
+\color green
+0x80484b3
 \family default
 \color inherit
  to set the variable 
 \family typewriter
-\color green
+\color blue
 logical_and
 \family default
 \color inherit
- at 
+ at
+\color blue
+ 
 \family typewriter
-\color green
 [ebp-0x8]
 \family default
 \color inherit
- to 0.
+ to 1.
 \end_layout
 
 \end_deeper
@@ -64387,6 +64155,7 @@ The boot process.
 
 \begin_inset Graphics
 	filename images/07/simple_boot_process.pdf
+	scale 80
 
 \end_inset
 
@@ -64421,7 +64190,7 @@ ES:BX
 \begin_deeper
 \begin_layout Standard
 \begin_inset listings
-lstparams "language={[x86masm]Assembler},showstringspaces=false,tabsize=4,commentstyle={\color{mygray}\itshape},frame=shadowbox"
+lstparams "language={[x86masm]Assembler},numbers=left,showstringspaces=false,tabsize=4,commentstyle={\color{mygray}\itshape},frame=shadowbox"
 inline false
 status open
 
@@ -64585,7 +64354,7 @@ status open
 
 \begin_layout Plain Layout
 
-; Bootloader.asm		
+; bootloader.asm		
 \end_layout
 
 \begin_layout Plain Layout
@@ -64596,6 +64365,11 @@ status open
 \begin_layout Plain Layout
 
 ;******************************************
+\end_layout
+
+\begin_layout Plain Layout
+
+org 0x7c00
 \end_layout
 
 \begin_layout Plain Layout
@@ -66124,7 +65898,7 @@ nd
 \noindent
 \align left
 \begin_inset listings
-lstparams "language={[x86masm]Assembler},basicstyle={\ttfamily},showstringspaces=false,tabsize=4,title={\texttt{sample.asm}},commentstyle={\color{mygray}\itshape},frame=shadowbox"
+lstparams "language={[x86masm]Assembler},numbers=left,basicstyle={\ttfamily},showstringspaces=false,tabsize=4,title={\texttt{sample.asm}},commentstyle={\color{mygray}\itshape},frame=shadowbox"
 inline false
 status open
 
@@ -66227,7 +66001,7 @@ $ nasm -f bin sample.asm -o sample
 \begin_layout Standard
 
 \family typewriter
-$ dd if=sample of=disk.img bs=512 count=1 seek=0
+$ dd if=sample of=disk.img bs=512 count=1 seek=1
 \end_layout
 
 \begin_layout Standard
@@ -66512,7 +66286,7 @@ nd
 \noindent
 \align left
 \begin_inset listings
-lstparams "language={[x86masm]Assembler},basicstyle={\ttfamily},showstringspaces=false,tabsize=4,title={\texttt{bootloader.asm}},commentstyle={\color{mygray}\itshape},frame=shadowbox"
+lstparams "language={[x86masm]Assembler},numbers=left,basicstyle={\ttfamily},showstringspaces=false,tabsize=4,title={\texttt{bootloader.asm}},commentstyle={\color{mygray}\itshape},frame=shadowbox"
 inline false
 status open
 
@@ -66534,6 +66308,11 @@ status open
 \begin_layout Plain Layout
 
 ;******************************************
+\end_layout
+
+\begin_layout Plain Layout
+
+org 0x7c00
 \end_layout
 
 \begin_layout Plain Layout
@@ -66819,7 +66598,7 @@ With Makefile, we can build simpler commands and save time:
 \noindent
 \align left
 \begin_inset listings
-lstparams "language={[gnu]make},tabsize=4,title={\texttt{Makefile}},commentstyle={\color{mygray}\itshape},frame=shadowbox"
+lstparams "language={[gnu]make},numbers=left,tabsize=4,title={\texttt{Makefile}},commentstyle={\color{mygray}\itshape},frame=shadowbox"
 inline false
 status open
 
@@ -67392,6 +67171,118 @@ nasm
 \family default
  files and we no longer need a separate recipe for each object files.
  Putting it all together with the new variables, we get a better Makefile:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+\begin_inset listings
+lstparams "language={[gnu]make},numbers=left,tabsize=4,title={\texttt{Makefile}},commentstyle={\color{mygray}\itshape},frame=shadowbox"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+BOOTLOADER=bootloader.o
+\end_layout
+
+\begin_layout Plain Layout
+
+OS=sample.o
+\end_layout
+
+\begin_layout Plain Layout
+
+DISK_IMG=disk.img
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+BOOTLOADER_SRCS := $(wildcard *.asm)
+\end_layout
+
+\begin_layout Plain Layout
+
+BOOTLOADER_OBJS := $(patsubst %.asm, %.o, $(BOOTLOADER_SRCS))
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+all: bootdisk
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%.o: %.asm
+\end_layout
+
+\begin_layout Plain Layout
+
+	nasm -f bin $< -o $@
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+bootdisk:  $(BOOTLOADER_OBJS)
+\end_layout
+
+\begin_layout Plain Layout
+
+	dd if=/dev/zero of=$(DISK_IMG) bs=512 count=2880
+\end_layout
+
+\begin_layout Plain Layout
+
+	dd conv=notrunc if=$(BOOTLOADER) of=$(DISK_IMG) bs=512 count=1 seek=0
+\end_layout
+
+\begin_layout Plain Layout
+
+	dd conv=notrunc if=$(OS) of=$(DISK_IMG) bs=512 count=1 seek=1
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From here on, any 
+\family typewriter
+.asm
+\family default
+ file is compiled automatically, without an explicit recipe for each file.
+ 
+\end_layout
+
+\begin_layout Standard
+The object files are in the same directory as the source files, making it
+ more difficult when working with the source tree.
+ Ideally, object files and source files should live in different directories.
+ We want a better organized directory layout like Figure 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "project-layout"
+
+\end_inset
+
+.
 \begin_inset Float marginfigure
 wide false
 sideways false
@@ -67502,118 +67393,6 @@ $ tree
 \end_layout
 
 \begin_layout Standard
-\noindent
-\align left
-\begin_inset listings
-lstparams "language={[gnu]make},tabsize=4,title={\texttt{Makefile}},commentstyle={\color{mygray}\itshape},frame=shadowbox"
-inline false
-status open
-
-\begin_layout Plain Layout
-
-BOOTLOADER=bootloader.o
-\end_layout
-
-\begin_layout Plain Layout
-
-OS=sample.o
-\end_layout
-
-\begin_layout Plain Layout
-
-DISK_IMG=disk.img
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-BOOTLOADER_SRCS := $(wildcard *.asm)
-\end_layout
-
-\begin_layout Plain Layout
-
-BOOTLOADER_OBJS := $(patsubst %.asm, %.o, $(BOOTLOADER_SRCS))
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-all: bootdisk
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-%.o: %.asm
-\end_layout
-
-\begin_layout Plain Layout
-
-	nasm -f bin $< -o $@
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-bootdisk:  $(BOOTLOADER_OBJS)
-\end_layout
-
-\begin_layout Plain Layout
-
-	dd if=/dev/zero of=$(DISK_IMG) bs=512 count=2880
-\end_layout
-
-\begin_layout Plain Layout
-
-	dd conv=notrunc if=$(BOOTLOADER) of=$(DISK_IMG) bs=512 count=1 seek=0
-\end_layout
-
-\begin_layout Plain Layout
-
-	dd conv=notrunc if=$(OS) of=$(DISK_IMG) bs=512 count=1 seek=1
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-From here on, any 
-\family typewriter
-.asm
-\family default
- file is compiled automatically, without an explicit recipe for each file.
- 
-\end_layout
-
-\begin_layout Standard
-The object files are in the same directory as the source files, making it
- more difficult when working with the source tree.
- Ideally, object files and source files should live in different directories.
- We want a better organized directory layout like Figure 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "project-layout"
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
 
 \family typewriter
 \color blue
@@ -67666,7 +67445,7 @@ bootloader/
 \noindent
 \align left
 \begin_inset listings
-lstparams "language={[gnu]make},tabsize=4,title={\texttt{bootloader/Makefile}},commentstyle={\color{mygray}\itshape},frame=shadowbox"
+lstparams "language={[gnu]make},numbers=left,tabsize=4,title={\texttt{bootloader/Makefile}},commentstyle={\color{mygray}\itshape},frame=shadowbox"
 inline false
 status open
 
@@ -68004,7 +67783,7 @@ Makefile
 \noindent
 \align left
 \begin_inset listings
-lstparams "language={[gnu]make},tabsize=4,title={\texttt{os/Makefile}},commentstyle={\color{mygray}\itshape},frame=shadowbox"
+lstparams "language={[gnu]make},numbers=left,tabsize=4,title={\texttt{os/Makefile}},commentstyle={\color{mygray}\itshape},frame=shadowbox"
 inline false
 status open
 
@@ -68153,7 +67932,7 @@ os
 \noindent
 \align left
 \begin_inset listings
-lstparams "language={[gnu]make},tabsize=4,title={\texttt{Makefile}},commentstyle={\color{mygray}\itshape},frame=shadowbox"
+lstparams "language={[gnu]make},numbers=left,tabsize=4,title={\texttt{Makefile}},commentstyle={\color{mygray}\itshape},frame=shadowbox"
 inline false
 status open
 
@@ -69281,7 +69060,7 @@ Our first configuration:
 \noindent
 \align left
 \begin_inset listings
-lstparams "language=bash,showstringspaces=false,tabsize=4,title={\texttt{.gdbinit}}"
+lstparams "language=bash,numbers=left,showstringspaces=false,tabsize=4,title={\texttt{.gdbinit}}"
 inline false
 status open
 
@@ -69392,7 +69171,12 @@ gdb
 status open
 
 \begin_layout Plain Layout
-The QEMU virtual machine should have already been started.
+The QEMU virtual machine should have already been started before starting
+ 
+\family typewriter
+gdb
+\family default
+.
 \end_layout
 
 \end_inset
@@ -73648,7 +73432,7 @@ main
 
 \begin_layout Standard
 \begin_inset listings
-lstparams "language=C,showstringspaces=false,tabsize=4,title={\texttt{hello.c}}"
+lstparams "language=C,numbers=left,showstringspaces=false,tabsize=4,title={\texttt{hello.c}}"
 inline false
 status open
 
@@ -74277,7 +74061,7 @@ GNU_STACK
 \begin_deeper
 \begin_layout Standard
 \begin_inset listings
-lstparams "language=bash,showstringspaces=false,tabsize=4,title={\texttt{main.lds}}"
+lstparams "language=bash,numbers=left,showstringspaces=false,tabsize=4,title={\texttt{main.lds}}"
 inline false
 status open
 
@@ -74567,7 +74351,7 @@ We can add as many segments of the same type, as long as they are given
 \begin_deeper
 \begin_layout Standard
 \begin_inset listings
-lstparams "language=bash,showstringspaces=false,tabsize=4,title={\texttt{main.lds}}"
+lstparams "language=bash,numbers=left,showstringspaces=false,tabsize=4,title={\texttt{main.lds}}"
 inline false
 status open
 
@@ -75071,8 +74855,15 @@ end{shelloutput16.6}
 \end_layout
 
 \begin_layout Standard
-In previous examples, the file size and memory size of the NULL section
- are always 0, now they are both 34 bytes, which is the size of an ELF header.
+In previous examples, the file size and memory size of the 
+\family typewriter
+NULL
+\family default
+ section are always 0, now they are both 
+\family typewriter
+34
+\family default
+ bytes, which is the size of an ELF header.
 \end_layout
 
 \end_deeper
@@ -75800,6 +75591,22 @@ PHDR
 The above number is consistent with ELF header output:
 \end_layout
 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{shelloutput16.6}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout LyX-Code
 ELF Header:
 \end_layout
@@ -75872,6 +75679,22 @@ bytes in total
 
 \begin_layout LyX-Code
   Section header string table index: 9
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{shelloutput16.6}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper
